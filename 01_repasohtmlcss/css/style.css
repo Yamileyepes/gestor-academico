@@ -1,0 +1,20 @@
+body {
+  padding: 16px;
+}
+
+span {
+  color: orangered;
+  font-weight: bold;
+}
+
+.list-desc-container {
+  border: solid 2px orangered;
+  padding: 24px;
+}
+
+#main-title {
+  text-align: center;
+  color: green;
+  font-style: italic;
+  font-weight: bold;
+}
