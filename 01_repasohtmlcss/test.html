@@ -6,6 +6,24 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Mi primera página web</title>
+
+    <style>
+      .list-item {
+        color: blue;
+        font-weight: bold;
+      }
+
+      #counter-title{
+        color: green;
+        margin-top: 36px;
+        margin-bottom: 0px;
+      }
+
+      #event-display {
+        display: none;
+      }
+    </style>
+
   </head>
   <body>
     <header>
@@ -37,10 +55,7 @@
          <!-- LISTAS NO ORDENADAS -->
          <h3>Lista no ordenada</h3>
            <ul class="unordered-list">
-             <li>Comprar pan</li>
-             <li>Comprar leche</li>
-             <li>Comprar huevos</li>
-             <li>Comprar queso</li>
+             
            </ul>
 
        </div>
@@ -145,7 +160,118 @@
           </div>
 
     <p>Hola, <span>soy otro span</span></p>
+    <hr>
+    <h2 id="counter-title">Temporizador</h2>
+    <label for="time">Tiempo: </label>
+    <input type="number" id="time" name="time" min="1" value="1">
+    <button id="start-button" class="btn btn-primary">Iniciar</button>
+    <p id="paragraph-counter"> Contador: <span id="timer">0</span></p>
+
+    <h2 id="counter-title">Contador</h2>
+    <button id="up-button" class="btn btn-success"> + </button>
+    <button id="down-button" class="btn btn-danger"> - </button>
+    <p id="paragraph-counter"> Contador: <span id="counter">0</span></p>
+
+
+    <h2>Mostrar evento</h2>
+    <button id="show-content" class="btn btn-warning">Mostrar contenido</button>
+    <button id="hide-content" class="btn btn-secondary">Ocultar contenido</button>
+    <div id="event-display" >
+      <h3>Título de prueba</h3>
+
+
+      <p>Párrafo de prueba</p>
+    </div>
     </main>
 
+    <script>
+      console.log("Enlazado con JS y HTML");
+      const mainTitle = document.getElementById("main-title");
+      const unorderedList = document.querySelector(".unordered-list");
+      const btnInit = document.getElementById("start-button");
+      const inputTime = document.getElementById("time");
+      const upButton = document.getElementById("up-button");
+      const downButton = document.getElementById("down-button");
+      const btnShowContent = document.getElementById("show-content");
+      const btnHideContent = document.getElementById("hide-content");
+      const eventDisplay = document.getElementById("event-display");
+
+      // Agregar elementos a la lista no ordenada
+      const listItems = ["Comprar arepas", "Comprar quesito", "Comprar panela", "Comprar chocolate"];
+      
+      listItems.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        li.className = "list-item";
+        unorderedList.appendChild(li);
+        console.log(`Agregado: ${item}`);
+      });
+
+      mainTitle.textContent = "Este panel lo llené desde JS";
+
+      mainTitle.addEventListener("click", () => {
+        alert("¡Escuchando el evento click!");
+      });
+
+      console.log(mainTitle.textContent);
+
+      // contador
+      upButton.addEventListener("click", () => {
+        let currentValue = parseInt(document.getElementById("counter").textContent);
+        currentValue++;
+        document.getElementById("counter").textContent = currentValue;
+      });
+
+      downButton.addEventListener("click", () => {
+        let currentValue = parseInt(document.getElementById("counter").textContent);
+        currentValue--;
+        document.getElementById("counter").textContent = currentValue;
+      });
+
+      // Temporizador
+      const spanCounter = document.getElementById("counter");
+      console.log(spanCounter);
+      let counter = inputTime.value;
+      btnInit.addEventListener("click", () => {
+        startTimer();
+        lateGreet();
+      });
+
+      function lateGreet(){
+
+          setTimeout(() => {
+                alert("Hola, esta es una alerta después de 30 segundos");
+              }, "30000");
+      }
+
+      
+      function startTimer() {
+        let counter = parseInt(inputTime.value);
+        const timerInterval = setInterval(() => {
+          console.log(counter);
+          document.getElementById("timer").textContent = counter;
+          counter--;
+          if (counter < 0) {
+            clearInterval(timerInterval);
+          }
+        }, 1000);
+      }
+     
+
+      // mostrar contenido
+      btnShowContent.addEventListener("click", () => {
+        eventDisplay.style.display = "block";
+      });
+
+      // ocultar contenido
+      btnHideContent.addEventListener("click", () => {
+        eventDisplay.style.display = "none";
+      });
+
+      
+      // }
+
+
+    </script>
   </body>
 </html>
