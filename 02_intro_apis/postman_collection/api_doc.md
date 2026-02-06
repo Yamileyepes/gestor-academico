@@ -1,18 +1,6 @@
 # JSON PLACE HOLDER Documentation
 
-You'll find below the different routes to consumi the free api resources https://jsonplaceholder.typicode.com/
-
-Routes
-All HTTP methods are supported. You can use http or https for your requests.
-
-GET	/posts
-GET	/posts/1
-GET	/posts/1/comments
-GET	/comments?postId=1
-POST	/posts
-PUT	/posts/1
-PATCH	/posts/1
-DELETE	/posts/1
+You'll find below the different routes to consumi the free api resources https://jsonplaceholder.typicode.com/.
 
 ## POSTS
 
@@ -26,8 +14,6 @@ to get a specific post, you can add the id in the url
 
 * GET: `https://jsonplaceholder.typicode.com/posts/{id}`
 * E.g. `https://jsonplaceholder.typicode.com/posts/1`
-
-
 
 ### POST
 
