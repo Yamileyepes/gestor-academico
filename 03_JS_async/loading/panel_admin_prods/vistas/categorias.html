@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- Bootstrap 5.3.8 (CSS) unificado -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <title>Categorías</title>
+
+    <style>
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 9999;
+        transition: opacity 0.3s ease;
+      }
+
+      .loading-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #0d6efd;
+        margin-top: 20px;
+      }
+
+      .loading-message {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+
+      .progress-animated {
+        height: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+        width: 200px;
+      }
+
+      .progress-bar {
+        animation: progress 2s ease-in-out infinite;
+      }
+
+      @keyframes progress {
+        0% { width: 10%; }
+        50% { width: 70%; }
+        100% { width: 10%; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1 id="main-title">Panel de Administración 🔤</h1>
+    </header>
+
+    <main class="main">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <h2 class="menu-title">Menú de navegación</h2>
+        <a href="./productos.html">Productos</a>
+        <a href="./categorias.html">Categorías</a>
+        <a href="../index.html">Volver &lt;&lt;</a>
+      </div>
+
+      <!-- CONTENIDO PRINCIPAL -->
+      <div class="content-main">
+        <h2>Lista de Categorías</h2>
+
+        <!-- Botón para agregar nueva categoría -->
+        <div class="mb-4">
+          <button id="btn-add-category" class="btn btn-outline-success" type="button">
+            <i class="bi bi-plus-circle"></i> Agregar Categoría
+          </button>
+        </div>
+
+        <!-- Tabla de Categorías -->
+        <div class="table-responsive">
+          <table class="table table-striped table-hover table-bordered table-sm">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre Categoría</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Fecha Creación</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="categoriesBody">
+              <!-- filas dinámicas -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Paginación (solo UI) -->
+        <nav aria-label="Paginación de categorías">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Anterior</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Siguiente</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+
+    <footer>
+      <p>Derechos reservados © 2026 - Panel admin - del G1 de Programación con Java & Javascript</p>
+    </footer>
+
+    <!-- MODAL (agregar/editar) -->
+    <div
+      class="modal fade"
+      id="categoryModal"
+      tabindex="-1"
+      aria-labelledby="categoryModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="categoryModalLabel">Agregar Nueva Categoría</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="category-form">
+              <div class="mb-3">
+                <label for="cat-name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="cat-name" required />
+              </div>
+
+              <div class="mb-3">
+                <label for="cat-desc" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="cat-desc" required />
+              </div>
+
+              <div class="mb-3">
+                <label for="cat-date" class="form-label">Fecha creación</label>
+                <input type="date" class="form-control" id="cat-date" required />
+              </div>
+
+              <div class="mb-3">
+                <label for="cat-state" class="form-label">Estado</label>
+                <select id="cat-state" class="form-select" required>
+                  <option value="Activo">Activo</option>
+                  <option value="Inactivo">Inactivo</option>
+                </select>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <!-- guardado ÚNICO por submit -->
+            <button type="submit" form="category-form" id="btn-save-category" class="btn btn-primary">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OVERLAY CARGA -->
+    <div id="loadingOverlay" class="loading-overlay d-none">
+      <div class="spinner-border text-primary mb-3" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="loading-text" id="loadingMessage">Cargando contenido...</div>
+      <div class="progress progress-animated mt-3">
+        <div class="progress-bar bg-primary" role="progressbar"></div>
+      </div>
+      <div class="loading-message mt-2">Por favor espera</div>
+    </div>
+
+    <!-- Bootstrap 5.3.8 (JS bundle) unificado -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- TU JS -->
+    <script src="../js/category.js"></script>
+  </body>
+</html>

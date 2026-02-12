@@ -1,6 +1,7 @@
 const charImage = document.getElementById("charImage");
 const charName = document.getElementById("charName");
 const charSpecies = document.getElementById("species");
+const inputName = document.getElementById("inputName");
 
 const btnBuscar = document.getElementById("btnBuscar");
 const URL_BASE = "https://rickandmortyapi.com/api/character/";
@@ -21,9 +22,14 @@ function reset() {
 async function buscarDataAsync() {
   // fetch: es una función que me va a permitir consumir apis
   const response = await fetch(URL_BASE);
+if (!response.ok) {
+    console.error("Error en la consulta:", response.status);
+    return undefined;
+}
+
   const data = await response.json();
   console.log(data);
-  return data.results[0];
+  return data.results;
 }
 
 const mock = buscarDataAsync();
@@ -31,15 +37,17 @@ console.log(mock);
 
 // plantear una función similar, pero con promises
 
-
 // función para asignar directamente los valores de la respuesta
 function asignarValores(data) {
   // img, nombre, desc
   console.log(data);
+  
+  // buscar id por nombre
 
-  charImage.src = data.image;
-  charName.textContent = data.name;
-  charSpecies.textContent = data.species;
+  const id = 0;
+  charImage.src = data[id].image;
+  charName.textContent = data[id].name;
+  charSpecies.textContent = data[id].species;
 
 }
 
@@ -56,7 +64,13 @@ async function cargarBase() {
 cargarBase();
 
 btnBuscar.addEventListener("click", async () => {
-  const data = await buscarPersonajePorNombre(charName.value);
+  console.log("Botón clickeado");
+
+  const data = await buscarPersonajePorNombre(inputName.value);
+
+  console.log(data);
+  
+
   console.log("Evento click" + data);
   if (!data) {
     console.log("Personaje no encontrado");
@@ -68,13 +82,16 @@ btnBuscar.addEventListener("click", async () => {
   charSpecies.textContent = data.species;
 });
 
-async function buscarPersonajePorNombre(nombre) {
+async function buscarPersonajePorNombre(inputName) {
     const data = await buscarDataAsync();
 
-    const charName = nombre.trim().toLowerCase();
+    const charName = inputName.trim().toLowerCase();
+    console.log(charName);
+    
     if (!charName) return null;
 
     const personaje = data.find(item => item.name.toLowerCase() === charName);
-
+    console.log(personaje);
+    
     return personaje ?? null;
 }
