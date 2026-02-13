@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Categorías</title>
+</head> 
+<body>
+  <header>
+      <h1 id="main-title"> Gestor Académico 🔤 </h1>   
+  </header>
+  
+  <main class="main">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <h2 class="menu-title">Inicio</h2>
+      <a href="./estudiantes.html">Estudiantes🧑‍🎓👨🏽‍🎓</a>
+      <a href="./asignaturas.html">Asignaturas📚</a>
+      <a href="./notas.html">Notas🗒️✅</a>
+      <a href="../index.html">Volver << </a>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="content-main">
+      <h2>Lista de Categorías</h2>
+      
+      <!-- Botón para agregar nueva categoría -->
+      <div class="mb-4">
+        <button class="btn btn-outline-success">
+          <i class="bi bi-plus-circle"></i> Agregar Categoría
+        </button>
+      </div>
+
+      <!-- Tabla de Categorías -->
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered table-sm">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre Categoría</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Fecha Creación</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Electrónica</td>
+              <td>Dispositivos electrónicos y gadgets</td>
+              <td>2026-01-10</td>
+              <td><span class="badge bg-success">Activo</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary me-1">
+                  <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Accesorios</td>
+              <td>Accesorios para computadoras y dispositivos</td>
+              <td>2026-01-12</td>
+              <td><span class="badge bg-success">Activo</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary me-1">
+                  <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Audio</td>
+              <td>Auriculares, parlantes y equipos de sonido</td>
+              <td>2026-01-15</td>
+              <td><span class="badge bg-success">Activo</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary me-1">
+                  <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Ropa</td>
+              <td>Prendas de vestir y accesorios de moda</td>
+              <td>2026-01-18</td>
+              <td><span class="badge bg-danger">Inactivo</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary me-1">
+                  <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Hogar</td>
+              <td>Artículos para el hogar y decoración</td>
+              <td>2026-01-20</td>
+              <td><span class="badge bg-success">Activo</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary me-1">
+                  <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Deportes</td>
+              <td>Equipamiento y artículos deportivos</td>
+              <td>2026-01-22</td>
+              <td><span class="badge bg-success">Activo</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary me-1">
+                  <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Libros</td>
+              <td>Libros y material de lectura</td>
+              <td>2026-01-25</td>
+              <td><span class="badge bg-success">Activo</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary me-1">
+                  <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Paginación -->
+      <nav aria-label="Paginación de categorías">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Anterior</a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <footer>
+    <p>Derechos reservados © 2026 - Panel admin - del G1 de Programación con Java & Javascript</p>
+  </footer>
+</body>
+</html>
