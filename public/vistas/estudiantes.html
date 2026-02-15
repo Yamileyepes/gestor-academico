@@ -28,14 +28,14 @@
     <div class="content-main">
       <h2>Gestión de Estudiantes</h2>
       
-      <!-- Botón para agregar nuevo producto -->
+      <!-- Botón para agregar nuevo estudiante -->
       <div class="mb-4">
-        <button id="btn-add-product" class="btn btn-outline-success">
+        <button id="btn-add-student" class="btn btn-outline-success">
           <i class="bi bi-plus-circle"></i> Agregar Estudiante
         </button>
       </div>
 
-      <!-- Tabla de Productos -->
+      <!-- Tabla de estudiantes -->
       <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered table-sm">
           <thead class="table-dark">
@@ -49,14 +49,14 @@
               <th scope="col">Acciones</th>
             </tr>
           </thead>
-          <tbody id="productsBody">
-            <!-- Filas de productos serán agregadas aquí dinámicamente -->
+          <tbody id="studentsBody">
+            <!-- Filas de estudiantes serán agregadas aquí dinámicamente -->
           </tbody>
         </table>
       </div>
 
       <!-- Paginación -->
-      <nav aria-label="Paginación de productos">
+      <nav aria-label="Paginación de estudiantes">
         <ul class="pagination justify-content-center">
           <li class="page-item disabled">
             <a class="page-link" href="#" tabindex="-1">Anterior</a>
@@ -70,45 +70,45 @@
         </ul>
       </nav>
 
-      <!-- Modal para agregar producto - CORREGIDA -->
-      <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+      <!-- Modal para agregar estudiantes - CORREGIDA -->
+      <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="productModalLabel">Agregar Nuevo Estudiante</h5>
+              <h5 class="modal-title" id="studentModalLabel">Agregar Nuevo Estudiante</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form id="product-form">
+              <form id="student-form">
                 <div class="mb-3">
-                  <label for="product-name" class="form-label">Nombre del Estudiante</label>
-                  <input type="text" class="form-control" id="product-name" required>
+                  <label for="student-name" class="form-label">Nombre del Estudiante</label>
+                  <input type="text" class="form-control" id="student-name" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="product-price" class="form-label">Documento del Estudiante</label>
-                  <input type="number" class="form-control" id="product-price" step="0.01" required>
+                  <label for="student-number" class="form-label">Documento del Estudiante</label>
+                  <input type="number" class="form-control" id="student-number" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="product-category" class="form-label">Correo del Estudiante</label>
-                  <input type="text" class="form-control" id="product-category" required>
+                  <label for="student-email" class="form-label">Correo del Estudiante</label>
+                  <input type="mail" class="form-control" id="student-email" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="product-quantity" class="form-label">Programa del Estudiante</label>
-                  <input type="number" class="form-control" id="product-quantity" min="1" required>
+                  <label for="program-student" class="form-label">Programa del Estudiante</label>
+                  <input type="text" class="form-control" id="program-student" required>
                 </div>
 
                 <div class="mb-3">
-                  <label for="product-date" class="form-label">Estado del Estudiante</label>
-                  <input type="date" class="form-control" id="product-date" required>
+                  <label for="student-status" class="form-label">Estado del Estudiante</label>
+                  <input type="text1" class="form-control" id="student-status" required>
                 </div>
               </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" form="product-form" id="btn-save-product" class="btn btn-primary">Agregar Estudiante</button>
+              <button type="button" form="student-form" id="btn-save-student" class="btn btn-primary">Agregar Estudiante</button>
             </div>
           </div>
         </div>
@@ -122,6 +122,6 @@
 
   <!-- Scripts - SIN atributos integrity para desarrollo local -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/product.js"></script>
+  <script src="../js/student.js"></script>
 </body>
 </html>

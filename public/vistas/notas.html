@@ -31,7 +31,7 @@
       <!-- Botón para agregar nueva categoría -->
       <div class="mb-4">
         <button class="btn btn-outline-success">
-          <i class="bi bi-plus-circle"></i> Agregar Categoría
+          <i class="bi bi-plus-circle"></i> Registrar Nota
         </button>
       </div>
 
@@ -41,18 +41,20 @@
           <thead class="table-dark">
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Nombre Categoría</th>
-              <th scope="col">Descripción</th>
-              <th scope="col">Fecha Creación</th>
-              <th scope="col">Estado</th>
+              <th scope="col">Estudiante</th>
+              <th scope="col">Asignatura</th>
+              <th scope="col">Nota</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Observación</th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>1</td>
-              <td>Electrónica</td>
-              <td>Dispositivos electrónicos y gadgets</td>
+              <td>Yamile Yepes</td>
+              <td>Historia</td>
+              <td>3.8</td>
               <td>2026-01-10</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
@@ -66,8 +68,9 @@
             </tr>
             <tr>
               <td>2</td>
-              <td>Accesorios</td>
-              <td>Accesorios para computadoras y dispositivos</td>
+              <td>Karen Zapata</td>
+              <td>Filosofía</td>
+              <td>4.0</td>
               <td>2026-01-12</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
@@ -81,24 +84,10 @@
             </tr>
             <tr>
               <td>3</td>
-              <td>Audio</td>
-              <td>Auriculares, parlantes y equipos de sonido</td>
+              <td>Valentina Gallego</td>
+              <td>Física</td>
+              <td>2.0</td>
               <td>2026-01-15</td>
-              <td><span class="badge bg-success">Activo</span></td>
-              <td>
-                <button class="btn btn-sm btn-outline-primary me-1">
-                  <i class="bi bi-pencil-square"></i> Editar
-                </button>
-                <button class="btn btn-sm btn-outline-danger">
-                  <i class="bi bi-trash"></i> Eliminar
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Ropa</td>
-              <td>Prendas de vestir y accesorios de moda</td>
-              <td>2026-01-18</td>
               <td><span class="badge bg-danger">Inactivo</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary me-1">
@@ -110,11 +99,28 @@
               </td>
             </tr>
             <tr>
+              <td>4</td>
+              <td>Diana Diaz</td>
+              <td>Química</td>
+              <td>4.8</td>
+              <td>2026-01-18</td>
+              <td><span class="badge bg-success">Inactivo</span></td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary me-1">
+                  <i class="bi bi-pencil-square"></i> Editar
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr>
               <td>5</td>
-              <td>Hogar</td>
-              <td>Artículos para el hogar y decoración</td>
+              <td>Carlos Ramírez</td>
+              <td>Literatura</td>
+              <td>1.0</td>
               <td>2026-01-20</td>
-              <td><span class="badge bg-success">Activo</span></td>
+              <td><span class="badge bg-danger">Inactivo</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary me-1">
                   <i class="bi bi-pencil-square"></i> Editar
@@ -126,10 +132,11 @@
             </tr>
             <tr>
               <td>6</td>
-              <td>Deportes</td>
-              <td>Equipamiento y artículos deportivos</td>
+              <td>Jhon Montoya</td>
+              <td>Historia</td>
+              <td>2.8</td>
               <td>2026-01-22</td>
-              <td><span class="badge bg-success">Activo</span></td>
+              <td><span class="badge bg-danger">Inactivo</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary me-1">
                   <i class="bi bi-pencil-square"></i> Editar
@@ -141,8 +148,9 @@
             </tr>
             <tr>
               <td>7</td>
-              <td>Libros</td>
-              <td>Libros y material de lectura</td>
+              <td>Cristian Álvarez</td>
+              <td>Química</td>
+              <td>3.5</td>
               <td>2026-01-25</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
@@ -171,6 +179,49 @@
           </li>
         </ul>
       </nav>
+      <!-- Modal para agregar estudiantes - CORREGIDA -->
+      <div class="modal fade" id="subjectModal" tabindex="-1" aria-labelledby="subjectModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="subjectModalLabel">Agregar Nuevo Código</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="subject-form">
+                <div class="mb-3">
+                  <label for="subject-name" class="form-label">Nombre de la Asignatura</label>
+                  <input type="text" class="form-control" id="subject-name" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="subject-number" class="form-label">Créditos</label>
+                  <input type="number" class="form-control" id="subject-number" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="subject-email" class="form-label">Docente</label>
+                  <input type="mail" class="form-control" id="subject-email" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="program-subject" class="form-label">Estado</label>
+                  <input type="text" class="form-control" id="program-subject" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="subject-status" class="form-label">Acciones</label>
+                  <input type="text1" class="form-control" id="subject-status" required>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" form="subject-form" id="btn-save-subject" class="btn btn-primary">Agregar Asignatura</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 

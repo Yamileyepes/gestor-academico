@@ -1,94 +1,94 @@
 
 
-// LLENAR TABLA PRODUCTOS
-let products = [
-  { id: 1, name: "Yamile Yepes", Number: 123888222, category: "yami@gmail.com", quantity: 1, date: "2024-01-15" },
-  { id: 2, name: "Karen Zapata", Number: 111800990, category: "karen@gmail.com", quantity: 2, date: "2024-01-20" }, 
-  { id: 3, name: "Valentina Gallego", Number: 12034260, category: "valen@gmail.com", quantity: 1, date: "2024-02-10" },
-  { id: 4, name: "Diana Diaz", Number: 1502338047, category: "diana@gmail.com", quantity: 2, date: "2024-03-05" },
-  { id: 5, name: "Carlos Ramírez", Number: 40082724, category: "carlos@gmail.com", quantity: 2, date: "2024-04-12" }
+// LLENAR TABLA ESTUDIANTES
+let students = [
+  { id: 1, name: "Yamile Yepes", Number: 123888222, email: "yami@gmail.com", text: "Historia", text1: "activo" },
+  { id: 2, name: "Karen Zapata", Number: 111800990, email: "karen@gmail.com", text: "Filosofía", text1: "activo" },
+  { id: 3, name: "Valentina Gallego", Number: 12034260, email: "valen@gmail.com", text: "Física", text1: "inactivo" },
+  { id: 4, name: "Diana Diaz", Number: 1502338047, email: "diana@gmail.com", text: "Química", text1: "activo" },
+  { id: 5, name: "Carlos Ramírez", Number: 40082724, email: "carlos@gmail.com", text: "Literatura", text1: "inactivo" }
 ];
 
-console.log(products);
+console.log(students);
 
 // Capturar variables
-const productsBody = document.getElementById("productsBody");
-const btnAddProduct = document.getElementById("btn-add-product");
-const productModalElement = document.getElementById('productModal');
+const studentsBody = document.getElementById("studentsBody");
+const btnAddStudent = document.getElementById("btn-add-student");
+const studentModalElement = document.getElementById('studentModal');
 
 
 // Función para llenar la tabla
-function fillProductsTable() {
-  productsBody.innerHTML = products.map( p => `
+function fillStudentsTable() {
+  studentsBody.innerHTML = students.map( p => `
     <tr>
         <td>${p.id}</td>
         <td>${p.name}</td>
         <td>$${p.Number}</td>
-        <td>${p.category}</td>
-        <td>${p.quantity}</td>
-        <td>${p.date}</td>
+        <td>${p.email}</td>
+        <td>${p.text}</td>
+        <td>${p.text1}</td>
         <td>
-          <button class="btn btn-sm btn-outline-primary" onclick="editProduct(${p.id})">Editar</button>
-          <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${p.id})">Eliminar</button>
+          <button class="btn btn-sm btn-outline-primary" onclick="editStudent(${p.id})">Editar</button>
+          <button class="btn btn-sm btn-outline-danger" onclick="deleteStudent(${p.id})">Eliminar</button>
         </td>
       </tr>`
     ).join("");    
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  fillProductsTable();
+  fillPStudentsTable();
 });
 
-// Mostrar la modal de agregar producto
+// Mostrar la modal de agregar estudiante
 // Para agregar el id, voy a buscar el id más alto y sumarle 1
-const productModal = new bootstrap.Modal(productModalElement);
+const studentModal = new bootstrap.Modal(studentModalElement);
 
-btnAddProduct.addEventListener("click", () => {
-  productModal.show();
+btnAddStudent.addEventListener("click", () => {
+  studentModal.show();
 });
 
-// guardar el producto
-const form = document.getElementById("product-form");
-const btnSaveProduct = document.getElementById("btn-save-product");
-btnSaveProduct.addEventListener("click", () => {
+// guardar el estudiante
+const form = document.getElementById("student-form");
+const btnSaveStudent = document.getElementById("btn-save-student");
+btnSaveStudent.addEventListener("click", () => {
   // Capturar los valores del formulario
-  const name = document.getElementById("product-name").value;
-  const Number = parseFloat(document.getElementById("product-price").value);
-  const category = document.getElementById("product-category").value;
-  const quantity = parseInt(document.getElementById("product-quantity").value);
-  const date = document.getElementById("product-date").value;
+  const name = document.getElementById("student-name").value;
+  const Number = parseInt(document.getElementById("student-number").value);
+  const email = document.getElementById("student-email").value;
+  const text = parseInt(document.getElementById("program-student").value);
+  const text1 = document.getElementById("student-status").value;
 
   // Validar que los campos no estén vacíos
-  if (!name || isNaN(Number) || !category || isNaN(quantity) || !date) {
+  if (!name || isNaN(Number) || !email || isNaN(text) || !text1) {
     alert("Por favor, complete todos los campos correctamente.");
     return;
   }
 
   // Generar nuevo ID
-  const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+  const newId = students.length > 0 ? Math.max(...students.map(p => p.id)) + 1 : 1;
 
-  // Crear nuevo producto
-  const newProduct = {
+  // Crear nuevo estudiante
+  const newStudent = {
     id: newId,
     name: name,
     Number: Number,
-    category: category,
-    quantity: quantity,
-    date: date
+    email: email,
+    text: text,
+    text1: text1
   };
 
-  // Agregar el nuevo producto al array de productos
-  products.push(newProduct);
+  // Agregar el nuevo estudiante al array de estudiantes
+  students.push(newStudent);
 
   // Actualizar la tabla
-  fillProductsTable();
+  fillStudentsTable();
 
   // Cerrar la modal
   form.reset(); // Limpiar el formulario
 
-  productModal.hide();
+  studentModal.hide();
 });
 
-// Editar producto
+// Editar estudiante
 
-// Eliminar producto
+// Eliminar estudiante

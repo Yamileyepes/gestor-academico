@@ -52,10 +52,10 @@
           <tbody>
             <tr>
               <td>1</td>
-              <td>Electrónica</td>
-              <td>Dispositivos electrónicos y gadgets</td>
-              <td>2026-01-10</td>
-              <td> </td>
+              <td>1010</td>
+              <td>Historia Universal</td>
+              <td>3</td>
+              <td>Aldo Isidro Pérez García</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary me-1">
@@ -68,10 +68,10 @@
             </tr>
             <tr>
               <td>2</td>
-              <td>Accesorios</td>
-              <td>Accesorios para computadoras y dispositivos</td>
-              <td>2026-01-12</td>
-              <td> </td>
+              <td>1011</td>
+              <td>Geografía</td>
+              <td>2</td>
+              <td>Alejandra Velásquez Solis</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary me-1">
@@ -84,10 +84,10 @@
             </tr>
             <tr>
               <td>3</td>
-              <td>Audio</td>
-              <td>Auriculares, parlantes y equipos de sonido</td>
-              <td>2026-01-15</td>
-              <td> </td>
+              <td>1012</td>
+              <td>Filosofía y Cívica</td>
+              <td>6</td>
+              <td>Jairo Enrique Aquite Ramirez</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary me-1">
@@ -100,10 +100,10 @@
             </tr>
             <tr>
               <td>4</td>
-              <td>Ropa</td>
-              <td>Prendas de vestir y accesorios de moda</td>
-              <td>2026-01-18</td>
-              <td> </td>
+              <td>1013</td>
+              <td>Termodinámica</td>
+              <td>3</td>
+              <td>Lina Marcela Jaramillo Jaramillo</td>
               <td><span class="badge bg-danger">Inactivo</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary me-1">
@@ -116,10 +116,10 @@
             </tr>
             <tr>
               <td>5</td>
-              <td>Hogar</td>
-              <td>Artículos para el hogar y decoración</td>
-              <td>2026-01-20</td>
-              <td> </td>
+              <td>1014</td>
+              <td>Química Inorgánica</td>
+              <td>6</td>
+              <td>Sorany Andrea Huertas Vargas</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary me-1">
@@ -132,10 +132,10 @@
             </tr>
             <tr>
               <td>6</td>
-              <td>Deportes</td>
-              <td>Equipamiento y artículos deportivos</td>
-              <td>2026-01-22</td>
-              <td> </td>
+              <td>1015</td>
+              <td>Literatura Universal</td>
+              <td>4</td>
+              <td>Kaliena Mejia Zambrano</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary me-1">
@@ -148,10 +148,10 @@
             </tr>
             <tr>
               <td>7</td>
-              <td>Libros</td>
-              <td>Libros y material de lectura</td>
-              <td>2026-01-25</td>
-              <td> </td>
+              <td>1016</td>
+              <td>Lengua y Lingüística</td>
+              <td>5</td>
+              <td>Diego Martínez</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary me-1">
@@ -167,7 +167,7 @@
       </div>
 
       <!-- Paginación -->
-      <nav aria-label="Paginación de categorías">
+      <nav aria-label="Paginación de asignaturas">
         <ul class="pagination justify-content-center">
           <li class="page-item disabled">
             <a class="page-link" href="#" tabindex="-1">Anterior</a>
@@ -179,6 +179,49 @@
           </li>
         </ul>
       </nav>
+            <!-- Modal para agregar estudiantes - CORREGIDA -->
+      <div class="modal fade" id="subjectModal" tabindex="-1" aria-labelledby="subjectModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="subjectModalLabel">Agregar Nuevo Código</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="subject-form">
+                <div class="mb-3">
+                  <label for="subject-name" class="form-label">Nombre de la Asignatura</label>
+                  <input type="text" class="form-control" id="subject-name" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="subject-number" class="form-label">Créditos</label>
+                  <input type="number" class="form-control" id="subject-number" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="subject-email" class="form-label">Docente</label>
+                  <input type="mail" class="form-control" id="subject-email" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="program-subject" class="form-label">Estado</label>
+                  <input type="text" class="form-control" id="program-subject" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="subject-status" class="form-label">Acciones</label>
+                  <input type="text1" class="form-control" id="subject-status" required>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" form="subject-form" id="btn-save-subject" class="btn btn-primary">Agregar Asignatura</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
