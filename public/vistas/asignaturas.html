@@ -17,7 +17,8 @@
   <main class="main">
     <!-- SIDEBAR -->
     <div class="sidebar">
-      <h2 class="menu-title">Inicio</h2>
+      <h2 class="menu-title">Menú</h2>
+      <a href="../index.html">Inicio 🏠</a>
       <a href="./estudiantes.html">Estudiantes🧑‍🎓👨🏽‍🎓</a>
       <a href="./asignaturas.html">Asignaturas📚</a>
       <a href="./notas.html">Notas🗒️✅</a>
@@ -30,9 +31,9 @@
       
       <!-- Botón para agregar nueva categoría -->
       <div class="mb-4">
-        <button class="btn btn-outline-success">
-          <i class="bi bi-plus-circle"></i> Agregar Asignatura
-        </button>
+      <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#subjectModal">
+        <i class="bi bi-plus-circle"></i> Agregar Asignatura
+      </button>
       </div>
 
       <!-- Tabla de Categorías -->
@@ -58,10 +59,10 @@
               <td>Aldo Isidro Pérez García</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary me-1">
+                <button class="btn btn-sm btn-outline-primary btn-edit me-1">
                   <i class="bi bi-pencil-square"></i> Editar
                 </button>
-                <button class="btn btn-sm btn-outline-danger">
+                <button class="btn btn-sm btn-outline-danger btn-delete">
                   <i class="bi bi-trash"></i> Eliminar
                 </button>
               </td>
@@ -74,10 +75,10 @@
               <td>Alejandra Velásquez Solis</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary me-1">
+                <button class="btn btn-sm btn-outline-primary btn-edit me-1">
                   <i class="bi bi-pencil-square"></i> Editar
                 </button>
-                <button class="btn btn-sm btn-outline-danger">
+                <button class="btn btn-sm btn-outline-danger btn-delete">
                   <i class="bi bi-trash"></i> Eliminar
                 </button>
               </td>
@@ -90,10 +91,10 @@
               <td>Jairo Enrique Aquite Ramirez</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary me-1">
+                <button class="btn btn-sm btn-outline-primary btn-edit me-1">
                   <i class="bi bi-pencil-square"></i> Editar
                 </button>
-                <button class="btn btn-sm btn-outline-danger">
+                <button class="btn btn-sm btn-outline-danger btn-delete">
                   <i class="bi bi-trash"></i> Eliminar
                 </button>
               </td>
@@ -106,10 +107,10 @@
               <td>Lina Marcela Jaramillo Jaramillo</td>
               <td><span class="badge bg-danger">Inactivo</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary me-1">
+                <button class="btn btn-sm btn-outline-primary btn-edit me-1">
                   <i class="bi bi-pencil-square"></i> Editar
                 </button>
-                <button class="btn btn-sm btn-outline-danger">
+                <button class="btn btn-sm btn-outline-danger btn-delete">
                   <i class="bi bi-trash"></i> Eliminar
                 </button>
               </td>
@@ -122,10 +123,10 @@
               <td>Sorany Andrea Huertas Vargas</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary me-1">
+                <button class="btn btn-sm btn-outline-primary btn-edit me-1">
                   <i class="bi bi-pencil-square"></i> Editar
                 </button>
-                <button class="btn btn-sm btn-outline-danger">
+                <button class="btn btn-sm btn-outline-danger btn-delete">
                   <i class="bi bi-trash"></i> Eliminar
                 </button>
               </td>
@@ -138,10 +139,10 @@
               <td>Kaliena Mejia Zambrano</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary me-1">
+                <button class="btn btn-sm btn-outline-primary btn-edit me-1">
                   <i class="bi bi-pencil-square"></i> Editar
                 </button>
-                <button class="btn btn-sm btn-outline-danger">
+                <button class="btn btn-sm btn-outline-danger btn-delete">
                   <i class="bi bi-trash"></i> Eliminar
                 </button>
               </td>
@@ -154,10 +155,10 @@
               <td>Diego Martínez</td>
               <td><span class="badge bg-success">Activo</span></td>
               <td>
-                <button class="btn btn-sm btn-outline-primary me-1">
+                <button class="btn btn-sm btn-outline-primary btn-edit me-1">
                   <i class="bi bi-pencil-square"></i> Editar
                 </button>
-                <button class="btn btn-sm btn-outline-danger">
+                <button class="btn btn-sm btn-outline-danger btn-delete">
                   <i class="bi bi-trash"></i> Eliminar
                 </button>
               </td>
@@ -179,46 +180,69 @@
           </li>
         </ul>
       </nav>
-            <!-- Modal para agregar estudiantes - CORREGIDA -->
-      <div class="modal fade" id="subjectModal" tabindex="-1" aria-labelledby="subjectModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="subjectModalLabel">Agregar Nuevo Código</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form id="subject-form">
-                <div class="mb-3">
-                  <label for="subject-name" class="form-label">Nombre de la Asignatura</label>
-                  <input type="text" class="form-control" id="subject-name" required>
-                </div>
+          <!-- Modal para agregar asignaturas -->
+          <div class="modal fade" id="subjectModal" tabindex="-1" aria-labelledby="subjectModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="subjectModalLabel">Agregar Nueva Asignatura</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+                <div class="modal-body">
+                  <form id="subject-form">
+                    <div class="mb-3">
+                      <label for="subject-name" class="form-label">Nombre de la Asignatura</label>
+                      <select class="form-control" id="subject-name" name="subject-name" required>
+                      <option value="" selected disabled>Seleccione una asignatura...</option>
+                        <option value="1">Historia Universal</option>
+                        <option value="2">Geografía</option>
+                        <option value="3">Filosofía y Cívica</option>
+                        <option value="4">Termodinámica</option>
+                        <option value="5">Química Inorgánica</option>
+                        <option value="6">Literatura Universal</option>
+                        <option value="7">Lengua y Lingüística</option>
+                      </select>
+                    </div>
 
-                <div class="mb-3">
-                  <label for="subject-number" class="form-label">Créditos</label>
-                  <input type="number" class="form-control" id="subject-number" required>
-                </div>
+                    <div class="mb-3">
+                      <label for="subject-credits" class="form-label">Créditos</label>
+                      <input type="number" class="form-control" id="subject-credits" placeholder="seleccione" min="1" max="10" required>
+                    </div>
 
-                <div class="mb-3">
-                  <label for="subject-email" class="form-label">Docente</label>
-                  <input type="mail" class="form-control" id="subject-email" required>
-                </div>
+                    <div class="mb-3">
+                      <label for="subject-teacher" class="form-label">Docente</label>
+                      <select class="form-control" id="subject-teacher" name="subject-teacher" required>
+                      <option value="" selected disabled>Seleccione un docente...</option>
+                        <option value="1">Aldo Isidro Pérez García</option>
+                        <option value="2">Alejandra Velásquez Solis</option>
+                        <option value="3">Jairo Enrique Aquite Ramirez</option>
+                        <option value="4">Lina Marcela Jaramillo Jaramillo</option>
+                        <option value="5">Sorany Andrea Huertas Vargas</option>
+                        <option value="6">Kaliena Mejia Zambrano</option>
+                        <option value="7">Diego Martínez</option>
+                      </select>
+                    </div>
 
-                <div class="mb-3">
-                  <label for="program-subject" class="form-label">Estado</label>
-                  <input type="text" class="form-control" id="program-subject" required>
-                </div>
+                    <div class="mb-3">
+                      <label for="program-subject" class="form-label">Estado</label>
+                      <select class="form-select" id="program-subject" required>
+                        <option value="" selected disabled>Seleccione un estado</option>
+                        <option value="activo">Activo</option>
+                        <option value="inactivo">Inactivo</option>
+                      </select>
+                    </div>
 
-                <div class="mb-3">
-                  <label for="subject-status" class="form-label">Acciones</label>
-                  <input type="text1" class="form-control" id="subject-status" required>
+                    <div class="mb-3">
+                      <label for="subject-status" class="form-label">Acciones</label>
+                      <input type="text" class="form-control" id="subject-status" required>
+                    </div>
+                  </form>
                 </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" form="subject-form" id="btn-save-subject" class="btn btn-primary">Agregar Asignatura</button>
-            </div>
+                <div class="modal-footer px-0 pb-0">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <!-- Cambiado a type="submit" para que valide el formulario -->
+                  <button type="submit" form="subject-form" id="btn-save-subject" class="btn btn-primary">Agregar Asignatura</button>
+                </div>
           </div>
         </div>
       </div>
@@ -226,7 +250,11 @@
   </main>
 
   <footer>
-    <p>Derechos reservados © 2026 - Panel admin - del G1 de Programación con Java & Javascript</p>
+    <p>Derechos reservados © 2026 - Gestor Académico</p>
   </footer>
+
+  <!-- Scripts - SIN atributos integrity para desarrollo local -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/subject.js"></script>
 </body>
 </html>

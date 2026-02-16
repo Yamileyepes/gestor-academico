@@ -17,7 +17,8 @@
   <main class="main">
     <!-- SIDEBAR -->
     <div class="sidebar">
-      <h2 class="menu-title">Inicio</h2>
+      <h2 class="menu-title">Menú</h2>
+      <a href="../index.html">Inicio 🏠</a>
       <a href="./estudiantes.html">Estudiantes🧑‍🎓👨🏽‍🎓</a>
       <a href="./asignaturas.html">Asignaturas📚</a>
       <a href="./notas.html">Notas🗒️✅</a>
@@ -70,7 +71,7 @@
         </ul>
       </nav>
 
-      <!-- Modal para agregar estudiantes - CORREGIDA -->
+      <!-- Modal para agregar estudiantes -->
       <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -92,17 +93,28 @@
 
                 <div class="mb-3">
                   <label for="student-email" class="form-label">Correo del Estudiante</label>
-                  <input type="mail" class="form-control" id="student-email" required>
+                  <input type="email" class="form-control" id="student-email" placeholder="ejemplo@correo.com" required>
                 </div>
 
                 <div class="mb-3">
                   <label for="program-student" class="form-label">Programa del Estudiante</label>
-                  <input type="text" class="form-control" id="program-student" required>
+                  <select class="form-control" id="program-student" name="program-student" placeholder="Seleccione" required>
+                    <option value="1">Historia</option>
+                    <option value="2">Filosofía</option>
+                    <option value="3">Física</option>
+                    <option value="4">Química</option>
+                    <option value="5">Literatura</option>
+                    <option value="6">Historia</option>
+                    <option value="7">Química</option>
+                  </select>
                 </div>
 
                 <div class="mb-3">
                   <label for="student-status" class="form-label">Estado del Estudiante</label>
-                  <input type="text1" class="form-control" id="student-status" required>
+                  <select type="button" class="form-control" id="student-status" name="student-status" placeholder="Seleccione" required>
+                    <option value="1">Activo</option>
+                    <option value="2">Inactivo</option>
+                  </select>
                 </div>
               </form>
             </div>
@@ -117,7 +129,7 @@
   </main>
 
   <footer>
-    <p>Derechos reservados © 2026 - Panel admin - del G1 de Programación con Java & Javascript</p>
+    <p>Derechos reservados © 2026 - Gestor Académico</p>
   </footer>
 
   <!-- Scripts - SIN atributos integrity para desarrollo local -->

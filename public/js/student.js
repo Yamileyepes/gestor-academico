@@ -99,7 +99,7 @@ function editStudent(id) {
   // Llenar el formulario con los datos del estudiante
   document.getElementById("student-name").value = student.name;
   document.getElementById("student-number").value = student.Number;
-  document.getElementById("student-email").value = student.category;
+  document.getElementById("student-email").value = student.email;
   document.getElementById("program-student").value = student.text;
   document.getElementById("student-status").value = student.text1;
   

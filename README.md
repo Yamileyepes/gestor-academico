@@ -1,2 +1,3 @@
-# java-udea-20252026
-Talleres y recursos de clase
+# gestor-academico
+En esta primera fase se desarrollará la base estructural y visual de una aplicación web denominada Gestor Académico, cuyo propósito será administrar información relacionada con Estudiantes, Asignaturas y Notas.
+El objetivo de esta actividad es diseñar la arquitectura inicial del proyecto, organizar correctamente el repositorio en GitHub, construir las vistas HTML y aplicar estilos coherentes que permitan una navegación clara entre los distintos módulos. En esta etapa no se implementará lógica con JavaScript; el enfoque está en la estructura, organización, diseño y buenas prácticas de maquetación.
