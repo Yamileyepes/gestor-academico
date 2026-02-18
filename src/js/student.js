@@ -1,12 +1,12 @@
 // LLENAR TABLA ESTUDIANTES
 let students = [
-  { id: 1, name: "Yamile Yepes", Number: 123888222, email: "yami@gmail.com", text: "Historia", text1: "Activo" },
-  { id: 2, name: "Karen Zapata", Number: 111800990, email: "karen@gmail.com", text: "Filosofía", text1: "Activo" },
-  { id: 3, name: "Valentina Gallego", Number: 12034260, email: "valen@gmail.com", text: "Física", text1: "Inactivo" },
-  { id: 4, name: "Diana Diaz", Number: 1502338047, email: "diana@gmail.com", text: "Química", text1: "Activo" },
-  { id: 5, name: "Carlos Ramírez", Number: 40082724, email: "carlos@gmail.com", text: "Literatura", text1: "Inactivo" },
-  { id: 6, name: "Jhon Montoya", Number: 70286946, email: "jhon@gmail.com", text: "Historia", text1: "Inactivo" },
-  { id: 7, name: "Cristian Álvarez", Number: 48965238, email: "cristian@gmail.com", text: "Química", text1: "Activo" }
+  { id: 1, name: "Yamile Yepes", Number: 123888222, email: "yami@gmail.com", text: "Historia", text1: '<span class="badge bg-success">Activo</span>' },
+  { id: 2, name: "Karen Zapata", Number: 111800990, email: "karen@gmail.com", text: "Filosofía", text1: '<span class="badge bg-success">Activo</span>' },
+  { id: 3, name: "Valentina Gallego", Number: 12034260, email: "valen@gmail.com", text: "Física", text1: '<span class="badge bg-danger">Inactivo</span>' },
+  { id: 4, name: "Diana Diaz", Number: 1502338047, email: "diana@gmail.com", text: "Química", text1: '<span class="badge bg-success">Activo</span>' },
+  { id: 5, name: "Carlos Ramírez", Number: 40082724, email: "carlos@gmail.com", text: "Literatura", text1: '<span class="badge bg-danger">Inactivo</span>' },
+  { id: 6, name: "Jhon Montoya", Number: 70286946, email: "jhon@gmail.com", text: "Historia", text1: '<span class="badge bg-danger">Inactivo</span>' },
+  { id: 7, name: "Cristian Álvarez", Number: 48965238, email: "cristian@gmail.com", text: "Química", text1: '<span class="badge bg-success">Activo</span>' }
 ];
 
 console.log('Estudiantes iniciales:', students);
@@ -48,23 +48,26 @@ function fillStudentsTable() {
 
 // Función para agregar un estudiante
 function addStudent() {
-  // Capturar los valores del formulario
-  const name = document.getElementById("student-name").value;
-  const Number = parseFloat(document.getElementById("student-number").value);
-  const email = document.getElementById("student-email").value;
-  const text = parseInt(document.getElementById("program-student").value);
-  const text1 = document.getElementById("student-status").value;
+  const name = document.getElementById("student-name").value.trim();
+  const Number = document.getElementById("student-number").value.trim();
+  const email = document.getElementById("student-email").value.trim();
+  const text = document.getElementById("program-student").value.trim();   
+  const statusValue = document.getElementById("student-status").value.trim();
 
   // Validar que los campos no estén vacíos
-  if (!name || isNaN(Number) || !email || isNaN(text) || !text1) {
+  if (!name || !Number || !email || !text || !statusValue) {
     alert("Por favor, complete todos los campos correctamente.");
     return false;
   }
 
+  // ✅ Construir el badge según el estado seleccionado
+  const text1 = statusValue === "Activo"
+    ? '<span class="badge bg-success">Activo</span>'
+    : '<span class="badge bg-danger">Inactivo</span>';
+
   // Generar nuevo ID
   const newId = students.length > 0 ? Math.max(...students.map(p => p.id)) + 1 : 1;
 
-  // Crear nuevo estudiante
   const newStudent = {
     id: newId,
     name: name,
@@ -74,10 +77,8 @@ function addStudent() {
     text1: text1
   };
 
-  // Agregar el nuevo estudiante al array de estudiantes
   students.push(newStudent);
   console.log('Estudiante agregado:', newStudent);
-  
   return true;
 }
 
@@ -101,7 +102,10 @@ function editStudent(id) {
   document.getElementById("student-number").value = student.Number;
   document.getElementById("student-email").value = student.email;
   document.getElementById("program-student").value = student.text;
-  document.getElementById("student-status").value = student.text1;
+  
+  // ✅ Extraer el texto del badge para asignarlo al select
+  const isActivo = student.text1.includes("Activo");
+  document.getElementById("student-status").value = isActivo ? "Activo" : "Inactivo";
   
   // Guardar el ID del estudiante que estamos editando
   editingStudentId = id;
@@ -117,17 +121,21 @@ function updateStudent() {
   }
   
   // Capturar los valores del formulario
-  const name = document.getElementById("student-name").value;
-  const Number = parseInt(document.getElementById("student-number").value);
-  const email = document.getElementById("student-email").value;
-  const text = parseInt(document.getElementById("program-student").value);
-  const text1 = document.getElementById("student-status").value;
+  const name = document.getElementById("student-name").value.trim();
+  const Number = document.getElementById("student-number").value.trim();
+  const email = document.getElementById("student-email").value.trim();
+  const text = document.getElementById("program-student").value;
+  const statusValue = document.getElementById("student-status").value;
 
   // Validar que los campos no estén vacíos
-  if (!name || isNaN(Number) || !email || isNaN(text) || !text1) {
+  if (!name || !Number || !email || !text || !statusValue) {
     alert("Por favor, complete todos los campos correctamente.");
     return false;
   }
+  // Construir el badge según el estado seleccionado
+  const text1 = statusValue === "Activo"
+    ? '<span class="badge bg-success">Activo</span>'
+    : '<span class="badge bg-danger">Inactivo</span>';
 
   // Buscar el estudiante en el array
   const studentIndex = students.findIndex(p => p.id === editingStudentId);
@@ -212,8 +220,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Limpiar el formulario
     studentForm.reset();
     
-    // Establecer fecha actual por defecto
-    document.getElementById('student-status').valueAstext1 ();
     
     // Resetear el modo edición
     editingStudentId = null;
