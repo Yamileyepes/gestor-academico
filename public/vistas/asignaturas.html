@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="/src/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js" integrity="sha512-sH8JPhKJUeA9PWk3eOcOl8U+lfZTgtBXD41q6cO/slwxGHCxKcW45K4oPCUhHG7NMB4mbKEddVmPuTXtpbCbFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <title>Asignaturas</title>
 </head> 
 <body>
@@ -180,72 +179,67 @@
           </li>
         </ul>
       </nav>
-          <!-- Modal para agregar asignaturas -->
-          <div class="modal fade" id="subjectModal" tabindex="-1" aria-labelledby="subjectModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="subjectModalLabel">Agregar Nueva Asignatura</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-                <div class="modal-body">
-                  <form id="subject-form">
-                    <div class="mb-3">
-                      <label for="subject-name" class="form-label">Nombre de la Asignatura</label>
-                      <select class="form-control" id="subject-name" name="subject-name" required>
-                      <option value="" selected disabled>Seleccione una asignatura...</option>
-                        <option value="1">Historia Universal</option>
-                        <option value="2">Geografía</option>
-                        <option value="3">Filosofía y Cívica</option>
-                        <option value="4">Termodinámica</option>
-                        <option value="5">Química Inorgánica</option>
-                        <option value="6">Literatura Universal</option>
-                        <option value="7">Lengua y Lingüística</option>
-                      </select>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="subject-credits" class="form-label">Créditos</label>
-                      <input type="number" class="form-control" id="subject-credits" placeholder="seleccione" min="1" max="10" required>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="subject-teacher" class="form-label">Docente</label>
-                      <select class="form-control" id="subject-teacher" name="subject-teacher" required>
-                      <option value="" selected disabled>Seleccione un docente...</option>
-                        <option value="1">Aldo Isidro Pérez García</option>
-                        <option value="2">Alejandra Velásquez Solis</option>
-                        <option value="3">Jairo Enrique Aquite Ramirez</option>
-                        <option value="4">Lina Marcela Jaramillo Jaramillo</option>
-                        <option value="5">Sorany Andrea Huertas Vargas</option>
-                        <option value="6">Kaliena Mejia Zambrano</option>
-                        <option value="7">Diego Martínez</option>
-                      </select>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="program-subject" class="form-label">Estado</label>
-                      <select class="form-select" id="program-subject" required>
-                        <option value="" selected disabled>Seleccione un estado</option>
-                        <option value="activo">Activo</option>
-                        <option value="inactivo">Inactivo</option>
-                      </select>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="subject-status" class="form-label">Acciones</label>
-                      <input type="text" class="form-control" id="subject-status" required>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer px-0 pb-0">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                  <!-- Cambiado a type="submit" para que valide el formulario -->
-                  <button type="submit" form="subject-form" id="btn-save-subject" class="btn btn-primary">Agregar Asignatura</button>
-                </div>
-          </div>
-        </div>
+          <!-- Modal para agregar/editar asignaturas -->
+<div class="modal fade" id="subjectModal" tabindex="-1" aria-labelledby="subjectModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="subjectModalLabel">Agregar Nueva Asignatura</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <form id="subject-form">
+
+          <div class="mb-3">
+            <label for="subject-name" class="form-label">Nombre de la Asignatura</label>
+            <select class="form-control" id="subject-name" name="subject-name" required>
+              <option value="" selected disabled>Seleccione una asignatura...</option>
+              <option value="Historia Universal">Historia Universal</option>
+              <option value="Geografía">Geografía</option>
+              <option value="Filosofía y Cívica">Filosofía y Cívica</option>
+              <option value="Termodinámica">Termodinámica</option>
+              <option value="Química Inorgánica">Química Inorgánica</option>
+              <option value="Literatura Universal">Literatura Universal</option>
+              <option value="Lengua y Lingüística">Lengua y Lingüística</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="subject-credits" class="form-label">Créditos</label>
+            <input type="number" class="form-control" id="subject-credits" placeholder="Entre 1 y 10" min="1" max="10" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="subject-teacher" class="form-label">Docente</label>
+            <select class="form-control" id="subject-teacher" name="subject-teacher" required>
+              <option value="" selected disabled>Seleccione un docente...</option>
+              <option value="Aldo Isidro Pérez García">Aldo Isidro Pérez García</option>
+              <option value="Alejandra Velásquez Solis">Alejandra Velásquez Solis</option>
+              <option value="Jairo Enrique Aquite Ramirez">Jairo Enrique Aquite Ramirez</option>
+              <option value="Lina Marcela Jaramillo Jaramillo">Lina Marcela Jaramillo Jaramillo</option>
+              <option value="Sorany Andrea Huertas Vargas">Sorany Andrea Huertas Vargas</option>
+              <option value="Kaliena Mejia Zambrano">Kaliena Mejia Zambrano</option>
+              <option value="Diego Martínez">Diego Martínez</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="program-subject" class="form-label">Estado</label>
+            <select class="form-select" id="program-subject" required>
+              <option value="" selected disabled>Seleccione un estado</option>
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" form="subject-form" id="btn-save-subject" class="btn btn-primary">Agregar Asignatura</button>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   </main>
 
